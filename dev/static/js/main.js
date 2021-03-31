@@ -11,7 +11,7 @@ const insertCurrenciesData = (data) => {
                 <div class="exchange-rates__name">${item.ccy}/${item.base_ccy}</div>
             </div>
             <div class="exchange-rates__col">
-                <div class="exchange-rates__data exchange-rates__usd-rate">${item.buy}/${item.sale}</div>
+                <div class="exchange-rates__data">${item.buy}/${item.sale}</div>
             </div>
         `;
         wrapper.appendChild(div);
