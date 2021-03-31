@@ -1,4 +1,4 @@
 # authorization form
 
-- [demo](/dist/index.html)
+- [demo](https://denyszabudskyi.github.io/authorization/dist/index.html)
 
