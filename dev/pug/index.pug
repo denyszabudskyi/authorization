@@ -6,17 +6,17 @@ block variables
 block content
 	.authorization-form
 		.authorization-form__wrap
-			form.authorization-form__form()
+			form.authorization-form__inner.js-validation()
 				.authorization-form__title
 					| Log in to your account
 				.authorization-form__button-group
-					a.btn.btn_size_md.btn_theme_social(href='#')
+					a.btn.btn--size-md.btn--theme-social(href='#')
 						span.btn__text
 							svg(width='21' height='20' fill='none' xmlns='http://www.w3.org/2000/svg')
 								path(fill-rule='evenodd' clip-rule='evenodd' d='M10.5 20c5.523 0 10-4.477 10-10s-4.477-10-10-10S.5 4.477.5 10s4.477 10 10 10z' fill='#1877F2')
 								path(fill-rule='evenodd' clip-rule='evenodd' d='M14.393 12.89l.443-2.89h-2.774V8.124c0-.79.388-1.562 1.63-1.562h1.261v-2.46s-1.144-.196-2.238-.196c-2.285 0-3.777 1.385-3.777 3.89V10h-2.54v2.89h2.54v6.988a10.073 10.073 0 003.124 0v-6.987h2.33z' fill='#fff')
 							|                                 Facebook
-					a.btn.btn_size_md.btn_theme_social(href='#')
+					a.btn.btn--size-md.btn--theme-social(href='#')
 						span.btn__text
 							svg(width='18' height='18' fill='none' xmlns='http://www.w3.org/2000/svg')
 								path(fill-rule='evenodd' clip-rule='evenodd' d='M9 3.48c1.69 0 2.83.73 3.48 1.34l2.54-2.48C13.46.89 11.43 0 9 0 5.48 0 2.44 2.02.96 4.96l2.91 2.26C4.6 5.05 6.62 3.48 9 3.48z' fill='#EA4335')
@@ -34,21 +34,21 @@ block content
 					label.authorization-form__label(for='password') Password
 					input#password.authorization-form__input(autocomplete='off' data-validate-field='password' name='password' type='password' placeholder='Enter your password')
 				a.authorization-form__link(href='#') Forgot your password?
-				button.btn.btn_size_lg.btn_theme_sun Log in
+				button.btn.btn--size-lg.btn--theme-sun Log in
 
 	.user-information
 		.user-information__row
 			.user-information__col
-				.user-information__name
+				.user-information__label
 					| Email
 			.user-information__col
-				.user-information__data.user-information__email
+				.user-information__value.user-information__email
 					| Email from form
 		.user-information__row
 			.user-information__col
-				.user-information__name
+				.user-information__label
 					| Password
 			.user-information__col
-				.user-information__data.user-information__password
+				.user-information__value.user-information__password
 					| Password from form
 	.exchange-rates

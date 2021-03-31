@@ -11,7 +11,7 @@ const insertCurrenciesData = (data) => {
                 <div class="exchange-rates__name">${item.ccy}/${item.base_ccy}</div>
             </div>
             <div class="exchange-rates__col">
-                <div class="exchange-rates__data">${item.buy}/${item.sale}</div>
+                <div class="exchange-rates__currency">${item.buy}/${item.sale}</div>
             </div>
         `;
         wrapper.appendChild(div);
@@ -22,7 +22,6 @@ const validateForm = (selector, rules) => {
     // eslint-disable-next-line no-undef,no-new
     const options = {
         rules: rules,
-        colorWrong: '#E36463',
         messages: {
             email: 'Enter a valid email address',
             password: 'Enter password'
@@ -51,7 +50,7 @@ fetch(url)
     .then(data => insertCurrenciesData(data))
     .catch((error) => console.log(`ERROR : ${error}`));
 
-validateForm('.authorization-form__form', {
+validateForm('.js-validation', {
     email: {
         required: true,
         email: true
