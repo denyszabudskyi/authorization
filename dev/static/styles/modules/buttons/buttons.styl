@@ -5,10 +5,8 @@
   transition 0.4s
 
 .btn_size_md
-  display inline-block
   font-size 14px
   line-height 16px
-  max-width 100%
 
 .btn_size_lg
   display block
@@ -20,7 +18,7 @@
   display inline-flex
   align-items center
 
-.btn_theme-sun
+.btn_theme_sun
   cursor pointer
   background #ff9000
   border none
@@ -28,10 +26,10 @@
   font-weight 600
   color white
 
-.btn_theme-sun:hover, .btn_theme-sun:active, .btn_theme-sun:focus
+.btn_theme_sun:hover, .btn_theme_sun:active, .btn_theme_sun:focus
   background #ffb14c
 
-.btn_theme-social
+.btn_theme_social
   border 1px solid #d4d4d4
   margin 4px 0
   .btn__text
@@ -42,13 +40,12 @@
       flex 0 0 21px
       margin-right 10px
 
-.btn_theme-social:hover, .btn_theme-social:active, .btn_theme-social:focus
+.btn_theme_social:hover, .btn_theme_social:active, .btn_theme_social:focus
   background #f9f9f9
   border-color #aaa
 
 @media only screen and (min-width: 600px)
-  .btn_theme-social
+  .btn_theme_social
     margin 0
   .btn_size_md
-    max-width 136px
-    width 100%
+    flex-basis 136px

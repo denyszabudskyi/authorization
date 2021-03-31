@@ -1,9 +1,9 @@
 const url = "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5";
 
-const insertCurrenciesData = (data) =>{
+const insertCurrenciesData = (data) => {
     const wrapper = document.querySelector('.exchange-rates');
 
-    data.forEach(function(item) {
+    data.forEach(function (item) {
         let div = document.createElement('div');
         div.className = 'exchange-rates__row';
         div.innerHTML = `
@@ -35,7 +35,7 @@ const validateForm = (selector, rules) => {
     const insertUserData = ({email, password}) => {
         const emailField = document.querySelector('.user-information__email');
         const passwordField = document.querySelector('.user-information__password');
-        if(emailField && passwordField){
+        if (emailField && passwordField) {
             emailField.textContent = email;
             passwordField.textContent = password;
             console.log(`email : ${email}, password : ${password}`);
