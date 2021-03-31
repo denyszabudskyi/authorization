@@ -1,0 +1,54 @@
+extends layout/main
+
+block variables
+	-var title = 'Authorization'
+
+block content
+	.authorization-form
+		.authorization-form__wrap
+			form.authorization-form__form()
+				.authorization-form__title
+					| Log in to your account
+				.authorization-form__button-group
+					a.btn.btn_size_md.btn_theme-social(href='/')
+						span.btn__text
+							svg(width='21' height='20' fill='none' xmlns='http://www.w3.org/2000/svg')
+								path(fill-rule='evenodd' clip-rule='evenodd' d='M10.5 20c5.523 0 10-4.477 10-10s-4.477-10-10-10S.5 4.477.5 10s4.477 10 10 10z' fill='#1877F2')
+								path(fill-rule='evenodd' clip-rule='evenodd' d='M14.393 12.89l.443-2.89h-2.774V8.124c0-.79.388-1.562 1.63-1.562h1.261v-2.46s-1.144-.196-2.238-.196c-2.285 0-3.777 1.385-3.777 3.89V10h-2.54v2.89h2.54v6.988a10.073 10.073 0 003.124 0v-6.987h2.33z' fill='#fff')
+							|                                 Facebook
+					a.btn.btn_size_md.btn_theme-social(href='/')
+						span.btn__text
+							svg(width='18' height='18' fill='none' xmlns='http://www.w3.org/2000/svg')
+								path(fill-rule='evenodd' clip-rule='evenodd' d='M9 3.48c1.69 0 2.83.73 3.48 1.34l2.54-2.48C13.46.89 11.43 0 9 0 5.48 0 2.44 2.02.96 4.96l2.91 2.26C4.6 5.05 6.62 3.48 9 3.48z' fill='#EA4335')
+								path(fill-rule='evenodd' clip-rule='evenodd' d='M17.64 9.2c0-.74-.06-1.28-.19-1.84H9v3.34h4.96c-.1.83-.64 2.08-1.84 2.92l2.84 2.2c1.7-1.57 2.68-3.88 2.68-6.62z' fill='#4285F4')
+								path(fill-rule='evenodd' clip-rule='evenodd' d='M3.88 10.78A5.54 5.54 0 013.58 9c0-.62.11-1.22.29-1.78L.96 4.96A9.008 9.008 0 000 9c0 1.45.35 2.82.96 4.04l2.92-2.26z' fill='#FBBC05')
+								path(fill-rule='evenodd' clip-rule='evenodd' d='M9 18c2.43 0 4.47-.8 5.96-2.18l-2.84-2.2c-.76.53-1.78.9-3.12.9-2.38 0-4.4-1.57-5.12-3.74L.97 13.04C2.45 15.98 5.48 18 9 18z' fill='#34A853')
+							|                                Google
+				.authorization-form__separator
+					span
+						| or
+				.authorization-form__field
+					label.authorization-form__label(for='email') Email
+					input#email.authorization-form__input(autocomplete='off' data-validate-field='email' name='email' type='email' placeholder='Enter a valid email address')
+				.authorization-form__field
+					label.authorization-form__label(for='password') Password
+					input#password.authorization-form__input(autocomplete='off' data-validate-field='password' name='password' type='password' placeholder='Enter your password')
+				a.authorization-form__link(href='/') Forgot your password?
+				button.btn.btn_size_lg.btn_theme-sun Log in
+
+	.user-information
+		.user-information__row
+			.user-information__col
+				.user-information__name
+					| Email
+			.user-information__col
+				.user-information__data.user-information__email
+					| Email from form
+		.user-information__row
+			.user-information__col
+				.user-information__name
+					| Password
+			.user-information__col
+				.user-information__data.user-information__password
+					| Password from form
+	.exchange-rates
