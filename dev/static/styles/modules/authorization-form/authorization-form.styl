@@ -1,0 +1,103 @@
+.authorization-form
+  max-width 384px
+  margin 0 auto 24px auto
+
+.authorization-form__wrap
+  padding 18px
+  background #fff
+  box-shadow 0 8px 20px rgba(0, 0, 0, .1)
+  border-radius 6px
+
+.authorization-form__form
+  margin-bottom 0
+
+.authorization-form__title
+  font-weight 600
+  font-size 20px
+  line-height 32px
+  text-align center
+  color #2c2c2c
+  margin-bottom 24px
+
+.authorization-form__button-group
+  display flex
+  flex-direction column
+  margin -4px 0 16px
+
+.authorization-form__separator
+  text-transform none
+  font-weight 600
+  font-size 14px
+  line-height 16px
+  color #aaa
+  text-align center
+  position relative
+  span
+    padding 0 16px
+    background white
+    position relative
+  &:before
+    content ''
+    display block
+    width 100%
+    height 1px
+    background #d4d4d4
+    position absolute
+    top 50%
+    left 0
+
+.authorization-form__field
+  display inline-block
+  width 100%
+  margin 12px 0 8px
+
+.authorization-form__label
+  display block
+  padding-left 8px
+  margin-bottom 4px
+  font-weight 600
+  font-size 12px
+  line-height 16px
+  color #6b6b6b
+
+.authorization-form__input
+  width 100%
+  background #fff
+  border 1px solid #aaa
+  box-sizing border-box
+  border-radius 4px
+  padding 11px 12px
+  font-size 14px
+  line-height 16px
+
+.authorization-form__link
+  display inline-block
+  font-size 14px
+  line-height 16px
+  color #1910ab
+  padding-left 8px
+  margin-bottom 32px
+
+.authorization-form__link:hover, .authorization-form__link :active, .authorization-form__link :focus
+  text-decoration none
+
+.js-validate-error-label
+  font-weight 600
+  font-size 12px
+  padding-left 8px
+  line-height 16px
+
+@media only screen and (min-width: 600px)
+  .authorization-form__wrap
+    padding 48px
+    border-radius 12px
+  .authorization-form__button-group
+    justify-content space-between
+    flex-direction row
+    margin 0 0 16px
+  .authorization-form__field
+    margin 16px 0 8px
+
+@media only screen and (min-width: 992px)
+  .authorization-form__title
+    font-size 24px

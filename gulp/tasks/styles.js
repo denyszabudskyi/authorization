@@ -6,14 +6,15 @@ const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
 const argv = require('yargs').argv;
 const gulpif = require('gulp-if');
+const stylus = require('gulp-stylus');
 
 // Работаем со стилями
 
 module.exports = function styles() {
-  return gulp.src('dev/static/styles/styles.scss')
+  return gulp.src('dev/static/styles/styles.styl')
     .pipe(plumber())
     .pipe(gulpif(!argv.prod, sourcemaps.init()))
-    .pipe(scss())
+    .pipe(stylus())
     .pipe(autoprefixer({
       overrideBrowserslist:  [ "last 4 version" ],
       cascade: false
