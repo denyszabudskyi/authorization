@@ -7,13 +7,20 @@ const styles = require('./gulp/tasks/styles');
 const clean = require('./gulp/tasks/clean');
 const pug2html = require('./gulp/tasks/pug');
 const spriteSVG = require('./gulp/tasks/spriteSVG');
-const serve = require('./gulp/tasks/serve');
 const spritePNG = require('./gulp/tasks/spritePNG');
+const serve = require('./gulp/tasks/serve');
 
-const dev = gulp.parallel(pug2html, script, styles, imageMinify);
+const development = gulp.parallel(pug2html, script, styles, imageMinify);
 
-exports.default = gulp.series(
-  clean,
-  dev,
-  serve
-);
+gulp.task('default', gulp.series(
+    clean,
+    development,
+    serve
+));
+
+const production = gulp.parallel(pug2html, script, styles, imageMinify);
+
+gulp.task('build', gulp.series(
+    clean,
+    production
+));

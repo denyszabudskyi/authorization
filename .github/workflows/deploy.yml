@@ -48,6 +48,13 @@ jobs:
           echo "Using dev parameter: ${{ inputs.dev }}"
           npm run ${{ inputs.build-mode }}
 
+      - name: Check build status  # check build status and exit action if there was an error
+        run: |
+          if [ $? -ne 0 ]; then
+            echo "Build has been failed. Exiting with status code 1."
+            exit 1
+          fi
+
       # - name: Configure AWS Credentials  # Configures AWS credentials.
       #   uses: aws-actions/configure-aws-credentials@v1
       #   with:

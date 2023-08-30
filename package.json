@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "gulp",
-    "build": "gulp --prod",
+    "development": "gulp",
+    "production": "gulp build",
     "style:lint": "stylelint ./dev/static/styles/**/*.scss --syntax scss",
     "style:fix": "stylelint './dev/static/styles/**/*.scss' --syntax scss --fix"
   },
