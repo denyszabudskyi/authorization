@@ -1,0 +1,64 @@
+name: Build and push to labs  # Sets the name of the GitHub Actions workflow.
+
+on:
+  workflow_dispatch:  # Configures triggers for manual workflow dispatch.
+    inputs:  # Specifies input parameters for manual triggering.
+      build-mode:
+        type: choice
+        default: development
+        required: true
+        description: 'Project build mode'
+        options:
+          - development
+          - production
+
+permissions:
+  id-token: write
+  contents: read  # Grants permissions for writing ID token and reading content.
+
+env:
+  AWS_REGION: 'us-east-1'  # Sets the AWS region.
+  AWS_ROLE_TO_ASSUME: ''  # Specifies the AWS role to assume.
+  AWS_ROLE_TO_ASSUME_NAME: ''  # Specifies the name of the AWS role.
+  IS_BUILD_REDUCED: ${{ github.event.inputs.is-reduced }}  # Retrieves the is-reduced input.
+  RUN_ID: ${{ github.run_number }}  # Retrieves the GitHub run number.
+
+jobs:
+  deploy:  # Defines the main job of the workflow.
+    runs-on: ubuntu-latest  # Sets the operating system for the job.
+
+    steps:  # Specifies the individual steps within the job.
+      - uses: actions/setup-node@v2  # Sets up the Node.js environment.
+        with:
+          node-version: '10.x'  # Specifies Node.js version.
+
+      - name: Checkout target branch  # Checks out the target branch.
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Fetches the full history.
+
+      - name: Setup NPM Registry & Install Dependencies  # Sets up NPM registry and installs dependencies.
+        run: npm install
+
+      - name: Build with Gulp  # Initiates build using Gulp.
+        env:
+          NODE_ENV: ${{ inputs.build-mode }}  # Sets NODE_ENV based on input.
+        run: |
+          echo "Building project on branch: ${{ github.ref }}"
+          echo "Using dev parameter: ${{ inputs.dev }}"
+          npm run ${{ inputs.build-mode }}
+
+      # - name: Configure AWS Credentials  # Configures AWS credentials.
+      #   uses: aws-actions/configure-aws-credentials@v1
+      #   with:
+      #     role-to-assume: ${{ env.AWS_ROLE_TO_ASSUME }}
+      #     role-session-name: ${{ env.AWS_ROLE_TO_ASSUME_NAME }}
+      #     aws-region: ${{ env.AWS_REGION }}
+
+      # - name: Copy to CDN  # Copies built project to CDN.
+      #   uses: ./.github/actions/copy-to-dev-cdn  # Invokes the copy-to-dev-cdn script.
+      #   env:
+      #     DEPLOY_DIR: './dest'
+      #     DEV_NAME: ${{ inputs.dev }}
+      #     AWS_REGION: ${{ env.AWS_REGION }}
+      #     CDN_BUCKET: ${{ secrets.FRONT_DEV_S3_CDN_BUCKET }}
