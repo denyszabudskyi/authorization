@@ -45,7 +45,6 @@ jobs:
           NODE_ENV: ${{ inputs.build-mode }}  # Sets NODE_ENV based on input.
         run: |
           echo "Building project on branch: ${{ github.ref }}"
-          echo "Using dev parameter: ${{ inputs.dev }}"
           npm run ${{ inputs.build-mode }}
 
       - name: Check build status  # check build status and exit action if there was an error
